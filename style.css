@@ -1,0 +1,1891 @@
+/* =====================================================
+   STOCKGUIDE V3
+   STYLE.CSS
+
+   DESIGN:
+   Clean • Modern • Professional • Responsive
+===================================================== */
+
+
+/* =====================================================
+   1. ROOT VARIABLES
+   UBAH WARNA WEBSITE DARI SINI
+===================================================== */
+
+:root {
+
+    /* BACKGROUND */
+    --bg: #f5f7fb;
+    --white: #ffffff;
+
+    /* PRIMARY COLORS */
+    --navy: #172b4d;
+    --navy-dark: #10203b;
+
+    /* BLUE */
+    --blue: #315d9e;
+    --blue-light: #edf3ff;
+
+    /* GREEN */
+    --green: #16845b;
+    --green-light: #e8f7ef;
+
+    /* YELLOW */
+    --yellow: #a56b08;
+    --yellow-light: #fff6dd;
+
+    /* RED */
+    --red: #bb3d4b;
+    --red-light: #fff0f1;
+
+    /* TEXT */
+    --text: #23324b;
+    --muted: #718096;
+
+    /* BORDER */
+    --border: #e3e9f2;
+
+    /* SHADOW */
+    --shadow: 0 8px 30px rgba(25, 45, 75, 0.05);
+
+    /* RADIUS */
+    --radius: 16px;
+
+    /* TRANSITION */
+    --transition: 0.25s ease;
+
+}
+
+
+/* =====================================================
+   2. RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background: var(--bg);
+    color: var(--text);
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    font-size: 14px;
+    line-height: 1.75;
+
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.container {
+
+    width: min(1080px, calc(100% - 36px));
+
+    margin: 0 auto;
+
+}
+
+
+/* =====================================================
+   3. HEADER
+===================================================== */
+
+.site-header {
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+}
+
+.header-content {
+
+    min-height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+.logo {
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 11px;
+
+    color: var(--navy);
+
+    font-size: 19px;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+
+}
+
+.logo-icon {
+
+    width: 37px;
+    height: 37px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--navy);
+    color: var(--white);
+
+    border-radius: 11px;
+
+    font-size: 19px;
+
+}
+
+.logo-accent {
+    color: var(--green);
+}
+
+.header-nav {
+
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+}
+
+.nav-link {
+
+    color: var(--muted);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: color var(--transition);
+
+}
+
+.nav-link:hover {
+    color: var(--green);
+}
+
+
+/* =====================================================
+   4. HERO
+===================================================== */
+
+.hero {
+    padding: 65px 0 42px;
+}
+
+.hero-badge,
+.section-eyebrow {
+
+    display: inline-block;
+
+    color: var(--green);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+.hero h1 {
+
+    max-width: 850px;
+
+    margin: 15px 0 18px;
+
+    color: var(--navy);
+
+    font-size: clamp(32px, 5vw, 53px);
+
+    line-height: 1.2;
+
+    letter-spacing: -1.8px;
+
+}
+
+.hero h1 span {
+
+    display: block;
+
+    color: var(--green);
+
+}
+
+.hero-description {
+
+    max-width: 730px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+}
+
+.hero-actions {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+}
+
+
+/* =====================================================
+   5. BUTTONS
+===================================================== */
+
+.btn {
+
+    min-height: 46px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 11px 19px;
+
+    border-radius: 10px;
+
+    border: 1px solid transparent;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+
+    background: var(--navy);
+
+    color: var(--white);
+
+}
+
+.btn-primary:hover {
+    background: var(--navy-dark);
+}
+
+.btn-secondary {
+
+    background: var(--green-light);
+
+    color: var(--green);
+
+}
+
+.btn-secondary:hover {
+    background: #d6f0e2;
+}
+
+.btn-outline {
+
+    background: var(--white);
+
+    color: var(--navy);
+
+    border-color: var(--border);
+
+}
+
+.btn-outline:hover {
+    background: var(--blue-light);
+}
+
+
+/* =====================================================
+   6. REFERENCE BOX
+===================================================== */
+
+.reference-box {
+
+    max-width: 850px;
+
+    margin-top: 35px;
+
+    padding: 23px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+}
+
+.reference-label {
+
+    display: block;
+
+    margin-bottom: 13px;
+
+    color: var(--navy);
+
+    font-size: 12px;
+    font-weight: 700;
+
+}
+
+.reference-names {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+}
+
+.reference-names span {
+
+    padding: 7px 12px;
+
+    background: var(--blue-light);
+
+    color: var(--blue);
+
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+}
+
+.reference-box p {
+
+    margin: 15px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   7. PANELS
+===================================================== */
+
+.panel {
+
+    margin: 22px 0;
+
+    padding: 28px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+}
+
+.section-title {
+    margin-bottom: 23px;
+}
+
+.section-title h2,
+.panel h2 {
+
+    margin: 6px 0;
+
+    color: var(--navy);
+
+    font-size: 23px;
+
+    letter-spacing: -0.5px;
+
+}
+
+.section-title p {
+
+    max-width: 750px;
+
+    margin: 7px 0;
+
+    color: var(--muted);
+
+    line-height: 1.9;
+
+}
+
+
+/* =====================================================
+   8. INDICATOR GUIDE
+===================================================== */
+
+.indicator-guide {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 24px;
+
+}
+
+.indicator-item {
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+
+    padding: 20px;
+
+    border-radius: 13px;
+
+}
+
+.indicator-item.positive {
+    background: var(--green-light);
+}
+
+.indicator-item.neutral {
+    background: var(--blue-light);
+}
+
+.indicator-item.negative {
+    background: var(--red-light);
+}
+
+.indicator-symbol {
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--white);
+
+    border-radius: 11px;
+
+    font-size: 23px;
+    font-weight: 800;
+
+}
+
+.positive .indicator-symbol {
+    color: var(--green);
+}
+
+.neutral .indicator-symbol {
+    color: var(--blue);
+}
+
+.negative .indicator-symbol {
+    color: var(--red);
+}
+
+.indicator-item h3 {
+
+    margin: 0 0 7px;
+
+    color: var(--navy);
+
+    font-size: 14px;
+
+}
+
+.indicator-item p {
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    line-height: 1.85;
+
+}
+
+
+/* =====================================================
+   9. ANALYSIS SECTION
+===================================================== */
+
+.analysis-section {
+    padding-top: 35px;
+    scroll-margin-top: 95px;
+}
+
+.company-panel {
+    margin-top: 20px;
+}
+
+.company-form {
+
+    display: grid;
+
+    grid-template-columns: 1fr 2fr auto;
+
+    align-items: end;
+
+    gap: 13px;
+
+}
+
+
+/* =====================================================
+   10. INPUTS
+===================================================== */
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.company-form .input-group {
+    margin-bottom: 0;
+}
+
+.input-group label,
+.dictionary-search label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--navy);
+
+    font-size: 12px;
+    font-weight: 700;
+
+}
+
+input,
+textarea,
+select {
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    background: #fbfcfe;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    color: var(--text);
+
+    outline: none;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    border-color: var(--blue);
+
+    box-shadow: 0 0 0 3px rgba(49, 93, 158, 0.08);
+
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9aa7b8;
+}
+
+textarea {
+
+    min-height: 115px;
+
+    resize: vertical;
+
+    line-height: 1.8;
+
+}
+
+.active-company {
+
+    margin-top: 17px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   11. PROGRESS
+===================================================== */
+
+.progress-heading {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+.progress-heading strong {
+
+    color: var(--green);
+
+    font-size: 27px;
+
+}
+
+.progress-track {
+
+    height: 11px;
+
+    margin-top: 22px;
+
+    background: #edf1f7;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+.progress-fill {
+
+    width: 0;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #16845b,
+        #35b989
+    );
+
+    border-radius: 20px;
+
+    transition: width 0.35s ease;
+
+}
+
+.progress-caption {
+
+    margin: 13px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   12. GUIDE CARDS
+===================================================== */
+
+.guide-heading {
+    margin-top: 45px;
+}
+
+.cards-container {
+
+    display: grid;
+
+    gap: 15px;
+
+}
+
+.guide-card {
+
+    overflow: hidden;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+
+}
+
+.guide-card:hover {
+    border-color: #cbd8e9;
+}
+
+.guide-card.completed {
+    border-color: #7bc9a5;
+}
+
+.card-header {
+
+    display: flex;
+    align-items: center;
+
+    gap: 17px;
+
+    padding: 22px;
+
+    cursor: pointer;
+
+}
+
+.card-header:hover {
+    background: #fbfcff;
+}
+
+.card-header:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: -3px;
+}
+
+.card-number {
+
+    flex-shrink: 0;
+
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--blue-light);
+
+    color: var(--blue);
+
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 800;
+
+}
+
+.guide-card.completed .card-number {
+
+    background: var(--green-light);
+
+    color: var(--green);
+
+}
+
+.card-heading {
+    flex: 1;
+    min-width: 0;
+}
+
+.card-heading h3 {
+
+    margin: 0;
+
+    color: var(--navy);
+
+    font-size: 16px;
+
+}
+
+.card-heading p {
+
+    margin: 4px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+.card-arrow {
+
+    color: var(--muted);
+
+    font-size: 23px;
+
+    transition: transform var(--transition);
+
+}
+
+.guide-card.open .card-arrow {
+    transform: rotate(180deg);
+}
+
+.card-body {
+
+    display: none;
+
+    padding: 23px;
+
+    border-top: 1px solid var(--border);
+
+}
+
+.guide-card.open .card-body {
+    display: block;
+}
+
+
+/* =====================================================
+   13. EXPLANATION BOXES
+===================================================== */
+
+.explain-box {
+
+    margin-bottom: 14px;
+
+    padding: 18px;
+
+    background: #f8fafc;
+
+    border-radius: 12px;
+
+}
+
+.explain-box h4 {
+
+    margin: 0 0 8px;
+
+    color: var(--navy);
+
+    font-size: 13px;
+    font-weight: 800;
+
+}
+
+.explain-box p {
+
+    margin: 0;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    white-space: pre-line;
+
+}
+
+.explain-box.good {
+    background: var(--green-light);
+}
+
+.explain-box.good h4 {
+    color: var(--green);
+}
+
+.explain-box.warning {
+    background: var(--yellow-light);
+}
+
+.explain-box.warning h4 {
+    color: var(--yellow);
+}
+
+.explain-box.danger {
+    background: var(--red-light);
+}
+
+.explain-box.danger h4 {
+    color: var(--red);
+}
+
+.explain-box.example {
+    background: var(--blue-light);
+}
+
+.explain-box.example h4 {
+    color: var(--blue);
+}
+
+
+/* =====================================================
+   14. FINANCIAL TERMS INSIDE GUIDE
+===================================================== */
+
+.financial-terms {
+
+    margin-bottom: 14px;
+
+    padding: 18px;
+
+    background: var(--blue-light);
+
+    border-radius: 12px;
+
+}
+
+.financial-terms h4 {
+
+    margin: 0 0 12px;
+
+    color: var(--blue);
+
+    font-size: 13px;
+
+}
+
+.financial-term-list {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+}
+
+.financial-term-tag {
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 7px 11px;
+
+    background: var(--white);
+
+    color: var(--blue);
+
+    border: 1px solid #d7e3f7;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   15. FORMULA BOX
+===================================================== */
+
+.formula-box {
+
+    margin-bottom: 14px;
+
+    padding: 18px;
+
+    background: #f4f7fc;
+
+    border: 1px dashed #b9c9e2;
+
+    border-radius: 12px;
+
+}
+
+.formula-box h4 {
+
+    margin: 0 0 10px;
+
+    color: var(--navy);
+
+    font-size: 13px;
+
+}
+
+.formula-content {
+
+    padding: 12px;
+
+    background: var(--white);
+
+    border-radius: 9px;
+
+    color: var(--blue);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    white-space: pre-line;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+/* =====================================================
+   16. DATA SOURCE
+===================================================== */
+
+.data-source {
+
+    margin: 18px 0;
+
+    padding: 13px 16px;
+
+    border-left: 3px solid var(--blue);
+
+    background: #f8fafc;
+
+    border-radius: 0 9px 9px 0;
+
+    font-size: 12px;
+
+    color: var(--muted);
+
+    line-height: 1.9;
+
+}
+
+.data-source strong {
+    color: var(--navy);
+}
+
+
+/* =====================================================
+   17. NOTES & CHECKBOX
+===================================================== */
+
+.note-label {
+
+    display: block;
+
+    margin: 20px 0 8px;
+
+    color: var(--navy);
+
+    font-size: 13px;
+    font-weight: 800;
+
+}
+
+.check-row {
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+    color: var(--navy);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+.check-row input {
+
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+
+    accent-color: var(--green);
+
+}
+
+
+/* =====================================================
+   18. DICTIONARY SECTION
+===================================================== */
+
+.dictionary-section {
+
+    padding: 70px 0 25px;
+
+    scroll-margin-top: 95px;
+
+}
+
+.dictionary-search-panel {
+    margin-top: 25px;
+}
+
+.dictionary-search label {
+    font-size: 13px;
+}
+
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-icon {
+
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--muted);
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+}
+
+.search-input-wrapper input {
+
+    min-height: 51px;
+
+    padding-left: 45px;
+
+    font-size: 13px;
+
+}
+
+.search-hint {
+
+    margin: 10px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   19. DICTIONARY FILTERS
+===================================================== */
+
+.dictionary-filters {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 23px;
+
+}
+
+.filter-btn {
+
+    padding: 9px 15px;
+
+    background: #f7f9fc;
+
+    color: var(--muted);
+
+    border: 1px solid var(--border);
+
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    transition: var(--transition);
+
+}
+
+.filter-btn:hover {
+
+    background: var(--blue-light);
+
+    color: var(--blue);
+
+}
+
+.filter-btn.active {
+
+    background: var(--navy);
+
+    color: var(--white);
+
+    border-color: var(--navy);
+
+}
+
+
+/* =====================================================
+   20. DICTIONARY RESULTS
+===================================================== */
+
+.dictionary-result-heading {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin: 28px 0 17px;
+
+}
+
+.dictionary-result-heading h3 {
+
+    margin: 0;
+
+    color: var(--navy);
+
+    font-size: 18px;
+
+}
+
+.dictionary-result-heading span {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   21. DICTIONARY GRID
+===================================================== */
+
+.dictionary-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+
+}
+
+
+/* =====================================================
+   22. DICTIONARY CARDS
+===================================================== */
+
+.dictionary-card {
+
+    padding: 22px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        border-color var(--transition),
+        transform var(--transition);
+
+}
+
+.dictionary-card:hover {
+
+    border-color: #cbd8e9;
+
+    transform: translateY(-2px);
+
+}
+
+.dictionary-card-header {
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 12px;
+
+}
+
+.dictionary-card h3 {
+
+    margin: 0;
+
+    color: var(--navy);
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+}
+
+.dictionary-fullname {
+
+    margin: 3px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+.dictionary-category {
+
+    flex-shrink: 0;
+
+    padding: 5px 9px;
+
+    background: var(--blue-light);
+
+    color: var(--blue);
+
+    border-radius: 30px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+}
+
+.dictionary-description {
+
+    margin: 12px 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+}
+
+.dictionary-detail {
+
+    margin-top: 15px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid var(--border);
+
+}
+
+.dictionary-detail h4 {
+
+    margin: 0 0 7px;
+
+    color: var(--navy);
+
+    font-size: 12px;
+
+}
+
+.dictionary-detail p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.85;
+
+    white-space: pre-line;
+
+}
+
+.dictionary-detail.good h4 {
+    color: var(--green);
+}
+
+.dictionary-detail.warning h4 {
+    color: var(--yellow);
+}
+
+.dictionary-detail.formula h4 {
+    color: var(--blue);
+}
+
+.dictionary-detail.source h4 {
+    color: var(--navy);
+}
+
+
+/* =====================================================
+   23. DICTIONARY EMPTY STATE
+===================================================== */
+
+.dictionary-empty {
+
+    padding: 45px 20px;
+
+    background: var(--white);
+
+    border: 1px dashed var(--border);
+
+    border-radius: var(--radius);
+
+    text-align: center;
+
+}
+
+.dictionary-empty h3 {
+
+    margin: 0 0 7px;
+
+    color: var(--navy);
+
+    font-size: 17px;
+
+}
+
+.dictionary-empty p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   24. CONCLUSION
+===================================================== */
+
+.conclusion-panel {
+    margin-top: 55px;
+}
+
+.action-buttons {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+}
+
+
+/* =====================================================
+   25. IMPORTANT NOTE
+===================================================== */
+
+.important-note {
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 16px;
+
+    margin: 35px 0;
+
+    padding: 22px;
+
+    background: var(--yellow-light);
+
+    border: 1px solid #f1dfad;
+
+    border-radius: var(--radius);
+
+}
+
+.important-note-icon {
+
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--yellow);
+
+    color: var(--white);
+
+    border-radius: 50%;
+
+    font-size: 16px;
+    font-weight: 800;
+
+}
+
+.important-note h3 {
+
+    margin: 0 0 7px;
+
+    color: var(--yellow);
+
+    font-size: 15px;
+
+}
+
+.important-note p {
+
+    margin: 7px 0;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =====================================================
+   26. TOAST NOTIFICATION
+===================================================== */
+
+.toast {
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 25px;
+
+    z-index: 1000;
+
+    max-width: calc(100% - 32px);
+
+    padding: 12px 20px;
+
+    background: var(--navy);
+
+    color: var(--white);
+
+    border-radius: 10px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-align: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translate(-50%, 20px);
+
+    transition:
+        opacity var(--transition),
+        transform var(--transition);
+
+}
+
+.toast.show {
+
+    opacity: 1;
+
+    transform: translate(-50%, 0);
+
+}
+
+
+/* =====================================================
+   27. FOOTER
+===================================================== */
+
+.footer {
+
+    padding: 30px 0 55px;
+
+    color: var(--muted);
+
+    text-align: center;
+
+    font-size: 11px;
+
+}
+
+.footer-brand {
+
+    margin-bottom: 10px;
+
+    color: var(--navy);
+
+    font-size: 20px;
+    font-weight: 800;
+
+}
+
+.footer-brand span {
+    color: var(--green);
+}
+
+.footer p {
+    margin: 6px 0;
+}
+
+
+/* =====================================================
+   28. TABLET RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .indicator-guide {
+        grid-template-columns: 1fr;
+    }
+
+    .company-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .company-form .btn {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+/* =====================================================
+   29. MOBILE RESPONSIVE
+===================================================== */
+
+@media (max-width: 760px) {
+
+    .hero {
+        padding-top: 42px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .header-content {
+        min-height: 67px;
+    }
+
+    .header-nav {
+        gap: 14px;
+    }
+
+    .nav-link {
+        font-size: 11px;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    .section-title h2,
+    .panel h2 {
+        font-size: 20px;
+    }
+
+    .company-form {
+        grid-template-columns: 1fr;
+    }
+
+    .company-form .btn {
+        grid-column: auto;
+    }
+
+    .card-header {
+        padding: 16px;
+    }
+
+    .card-body {
+        padding: 16px;
+    }
+
+    .dictionary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dictionary-section {
+        padding-top: 50px;
+    }
+
+    .dictionary-card {
+        padding: 19px;
+    }
+
+    .conclusion-panel {
+        margin-top: 40px;
+    }
+
+}
+
+
+/* =====================================================
+   30. SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .container {
+        width: calc(100% - 24px);
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .logo-icon {
+        width: 33px;
+        height: 33px;
+    }
+
+    .header-nav {
+        gap: 10px;
+    }
+
+    .nav-link {
+        font-size: 10px;
+    }
+
+    .hero h1 {
+
+        font-size: 30px;
+
+        letter-spacing: -1px;
+
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .reference-box {
+        padding: 18px;
+    }
+
+    .card-number {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card-heading h3 {
+        font-size: 14px;
+    }
+
+    .card-heading p {
+        font-size: 11px;
+    }
+
+    .progress-heading strong {
+        font-size: 23px;
+    }
+
+    .dictionary-filters {
+        gap: 7px;
+    }
+
+    .filter-btn {
+        padding: 8px 11px;
+        font-size: 10px;
+    }
+
+    .dictionary-card-header {
+        flex-wrap: wrap;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+    }
+
+    .important-note {
+        padding: 17px;
+        gap: 11px;
+    }
+
+}
+
+
+/* =====================================================
+   31. REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+        animation-duration: 0.01ms !important;
+
+    }
+
+}

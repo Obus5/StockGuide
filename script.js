@@ -2141,27 +2141,124 @@ if (window.matchMedia("(max-width: 900px)").matches) {
         return !grahamResults.hidden;
     }
 
-    function updateShareCard() {
-        const ticker = tickerInput && tickerInput.value.trim()
-            ? tickerInput.value.trim().toUpperCase()
-            : "Tanpa Kode Saham";
+   
 
-        const targetMos = mosSelect ? mosSelect.value : "30";
+function updateShareCard() {
+    const ticker = tickerInput.value.trim().toUpperCase() || "SAHAM";
 
-        shareCardTicker.textContent = "Hasil Valuasi " + ticker;
-        shareCardIntrinsic.textContent =
-            intrinsicOutput ? intrinsicOutput.textContent : "—";
-        shareCardMos.textContent =
-            mosOutput ? mosOutput.textContent : "—";
-        shareCardBuyLabel.textContent =
-            "Batas Harga Beli (MOS " + targetMos + "%)";
-        shareCardBuyPrice.textContent =
-            buyPriceOutput ? buyPriceOutput.textContent : "—";
-        shareCardConclusion.textContent =
-            interpretation && interpretation.textContent.trim()
-                ? interpretation.textContent.trim()
-                : "Kesimpulan hasil valuasi belum tersedia.";
+    const eps = Number(document.getElementById("grahamEps").value);
+    const bvps = Number(document.getElementById("grahamBvps").value);
+    const harga = Number(document.getElementById("grahamPrice").value);
+    const target = Number(mosSelect.value);
+
+    if (
+        eps <= 0 || bvps <= 0 || harga <= 0 ||
+        !Number.isFinite(eps) ||
+        !Number.isFinite(bvps) ||
+        !Number.isFinite(harga) ||
+        !Number.isFinite(target) ||
+        target < 0 || target >= 100
+    ) return;
+
+    const wajar = Math.sqrt(22.5 * eps * bvps);
+    const mos = ((wajar - harga) / wajar) * 100;
+    const batasBeli = wajar * (1 - target / 100);
+
+    const rupiah = new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 2
+    });
+
+    const persen = n => n.toLocaleString("id-ID", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }) + "%";
+
+    // JUDUL
+    shareCardTicker.textContent = "Hasil Valuasi " + ticker;
+
+    // HARGA WAJAR
+    shareCardIntrinsic.textContent = rupiah.format(wajar);
+
+    shareCardIntrinsic.parentElement.querySelector("span")
+        .textContent = "Perkiraan Harga Wajar Saham";
+
+    // MOS
+    shareCardMos.textContent = persen(mos);
+
+    shareCardMos.parentElement.querySelector("span")
+        .textContent = mos > 0
+            ? "Seberapa Murah Harga Saham Saat Ini?"
+            : mos < 0
+                ? "Seberapa Mahal Harga Saham Saat Ini?"
+                : "Harga Saham Dibanding Harga Wajar";
+
+    // HARGA BELI
+    shareCardBuyLabel.textContent =
+        "Batas Harga Beli (Target MOS " + target + "%)";
+
+    shareCardBuyPrice.textContent = rupiah.format(batasBeli);
+
+    // FUNGSI MEMBUAT PENJELASAN
+    function isiPenjelasan(element, teks) {
+        const kotak = element.parentElement;
+
+        let penjelasan = kotak.querySelector(
+            ".share-card-description"
+        );
+
+        if (!penjelasan) {
+            penjelasan = document.createElement("p");
+            penjelasan.className = "share-card-description";
+            kotak.appendChild(penjelasan);
+        }
+
+        penjelasan.textContent = teks;
     }
+
+    isiPenjelasan(
+        shareCardIntrinsic,
+        "Perkiraan nilai saham per lembar menurut Graham Number."
+    );
+
+    isiPenjelasan(
+        shareCardMos,
+        mos > 0
+            ? "Harga pasar " + rupiah.format(harga) +
+              " berada " + persen(mos) +
+              " di bawah perkiraan harga wajar."
+            : mos < 0
+                ? "Harga pasar " + rupiah.format(harga) +
+                  " berada " + persen(Math.abs(mos)) +
+                  " di atas perkiraan harga wajar."
+                : "Harga pasar sama dengan perkiraan harga wajar."
+    );
+
+    isiPenjelasan(
+        shareCardBuyPrice,
+        "Batas harga beli tertinggi agar target MOS " +
+        target + "% terpenuhi."
+    );
+
+    // KESIMPULAN OTOMATIS
+    const memenuhi = harga <= batasBeli;
+
+    shareCardConclusion.classList.toggle("is-met", memenuhi);
+    shareCardConclusion.classList.toggle("is-not-met", !memenuhi);
+
+    shareCardConclusion.textContent = memenuhi
+        ? "Harga pasar " + rupiah.format(harga) +
+          " sudah memenuhi target MOS " + target +
+          "% karena tidak melebihi batas harga beli " +
+          rupiah.format(batasBeli) + "."
+        : "Harga pasar " + rupiah.format(harga) +
+          " belum memenuhi target MOS " + target +
+          "%. Batas harga beli yang ditargetkan adalah " +
+          rupiah.format(batasBeli) + " atau lebih rendah.";
+}
+
+
 
     function showShareTools() {
         if (hasResult()) {
